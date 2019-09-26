@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    padding: o;
+}
+header{
+    width: 100%;
+    height: 40px;
+    background: #010042;
+    color: aliceblue;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p{
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.search{
+    margin-right: 50px !important;
+}
+
+.btn-primary{
+    margin-right: 200px !important;
+    background-color: #000 !important;
+    border-color: #000 !important;
+    padding: 3px !important;
+}
+
+.contenido{
+    width: 100%;
+    display: flex;
+}
+
+.menu{
+    width: 250px;
+    height: 95vh;
+    background: #282828;
+    color: #828282;
+    font-size: 25px;
+}
+
+.fa-home{
+    font-size: 40px;
+}
+
+span{
+    font-size: 15px;
+}
+
+.home{
+    width: 100%;
+    height: 160px;
+    border-bottom: 2px solid;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.options{
+    width: 100%;
+    height: 160px;
+    border-bottom: 2px solid; 
+
+    padding-left: 10px;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+.options span, .solicitudes span{
+    padding-left: 10px;
+}
+.solicitudes{
+    padding-left: 10px;
+    padding-top: 15px;
+    font-size: 20px; 
+}
+
+.fa-envelope{
+    color: #828282;
+    font-size: 18px;
+}
+
+.escritorio{
+    display: flex;
+    flex-direction: column;
+    opacity: 0.3;
+
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.bienvenida{
+    font-size: 50px;
+}
