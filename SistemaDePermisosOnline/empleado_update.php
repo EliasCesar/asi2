@@ -21,7 +21,7 @@
 		$afp = $empleado->sanitize($_POST['afp']);
 		$estadi_civil = $empleado->sanitize($_POST['estadi_civil']);
 		$empleado_id = 1;//$empleado->sanitize($_POST['empleado_id']);
-		$cargo_id = 1;//$empleado->sanitize($_POST['cargo_id']);
+		$cargo_id = $empleado->sanitize($_POST['cargo_id']);
 		$id_empleado=intval($_POST['id_empleado']);
 		$res = $empleado->update($nombres, $apellidos,$fecha_nac, $fecha_ingreso, $codigo_isss, $id_tipo_licencia, $telefono, $email, $dui, $nit, $afp, $estadi_civil, $empleado_id, $cargo_id, $id_empleado);
 		if($res){
@@ -86,7 +86,7 @@
 						</div>
 						<div class="col-md-12">
 							<label>Licencia</label>
-							<input type="number" name="id_tipo_licencia" id="id_tipo_licencia" class='form-control' maxlength="16" value="<?php echo $datos_empleado->id_tipo_licencia;?>" required>
+							<input type="number" name="id_tipo_licencia" id="id_tipo_licencia" class='form-control' maxlength="16" value="<?php echo $datos_empleado->id_tipo_Licencia;?>" required>
 						</div>
 						<div class="col-md-12">
 							<label>Teléfono:</label>
@@ -112,11 +112,23 @@
 						<div class="col-md-12">
 							<label>Estado Civil:</label>
 							<select name="estadi_civil">
-							  <option value="Soltero">Soltero</option>
-							  <option value="Divorciado">Divorciado</option>
-							  <option value="Casado">Casado</option>
-							  <option value="Acompañado">Acompañado</option>
-							  <option value="Otro">Otro</option>
+							  <option value="Soltero" <?php echo ($datos_empleado->estadi_civil=="Soltero") ?  "SELECTED" :"";?>>Soltero</option>
+							  <option value="Divorciado" <?php echo ($datos_empleado->estadi_civil=="Divorciado") ?  "SELECTED" :"";?>>Divorciado</option>
+							  <option value="Casado" <?php echo ($datos_empleado->estadi_civil=="Casado") ?  "SELECTED" :"";?>>Casado</option>
+							  <option value="Acompañado" <?php echo ($datos_empleado->estadi_civil=="Acompañado") ?  "SELECTED" :"";?>>Acompañado</option>
+							  <option value="Otro" <?php echo ($datos_empleado->estadi_civil=="Otro") ?  "SELECTED" :"";?>>Otro</option>
+							</select>
+						</div>
+						<div class="col-md-12">
+							<label>Cargo:</label>
+							<select name="cargo_id">
+								<?php
+									$listadoCargo=$empleado->ReadCargo();
+									var_dump($listadoCargo);
+									while ($row=mysqli_fetch_object($listadoCargo)){
+										echo '<option value="'.$row->id_cargo.'">'.$row->nom_Cargo.'</option>';
+									}
+								?>
 							</select>
 						</div>
 						<div class="col-md-12 pull-right">

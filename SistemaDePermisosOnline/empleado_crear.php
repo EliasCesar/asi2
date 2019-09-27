@@ -15,7 +15,7 @@
 		$afp = $empleado->sanitize($_POST['afp']);
 		$estadi_civil = $empleado->sanitize($_POST['estadi_civil']);
 		$empleado_id = 1;//$empleado->sanitize($_POST['empleado_id']);
-		$cargo_id = 1;//$empleado->sanitize($_POST['cargo_id']);
+		$cargo_id = $empleado->sanitize($_POST['cargo_id']);
 		
 		$res = $empleado->create($nombres, $apellidos,$fecha_nac, $fecha_ingreso, $codigo_isss, $id_tipo_licencia, $telefono, $email, $dui, $nit, $afp, $estadi_civil, $empleado_id, $cargo_id);
 		if($res){
@@ -110,6 +110,18 @@
 							  <option value="Casado">Casado</option>
 							  <option value="Acompañado">Acompañado</option>
 							  <option value="Otro">Otro</option>
+							</select>
+						</div>
+						<div class="col-md-12">
+							<label>Cargo:</label>
+							<select name="cargo_id">
+								<?php
+									$listadoCargo=$empleado->ReadCargo();
+									var_dump($listadoCargo);
+									while ($row=mysqli_fetch_object($listadoCargo)){
+										echo '<option value="'.$row->id_cargo.'">'.$row->nom_Cargo.'</option>';
+									}
+								?>
 							</select>
 						</div>
 						<div class="col-md-12 pull-right">

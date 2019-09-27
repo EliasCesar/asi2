@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2019 a las 06:01:21
+-- Tiempo de generación: 27-09-2019 a las 19:37:22
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 7.0.13
 
@@ -29,15 +29,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `cargo` (
   `id_cargo` int(11) NOT NULL,
   `nom_Cargo` varchar(45) DEFAULT NULL,
-  `dependencia_id` int(11) NOT NULL
+  `dependencia_id` int(11) NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cargo`
 --
 
-INSERT INTO `cargo` (`id_cargo`, `nom_Cargo`, `dependencia_id`) VALUES
-(1, 'Recursos Humanos', 1);
+INSERT INTO `cargo` (`id_cargo`, `nom_Cargo`, `dependencia_id`, `estado`) VALUES
+(1, 'Recursos Humanos', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -146,25 +147,27 @@ CREATE TABLE `empleado` (
   `apellido` varchar(45) DEFAULT NULL,
   `fecha_nac` date DEFAULT NULL,
   `fecha_ingreso` date DEFAULT NULL,
-  `codigo_isss` int(11) DEFAULT NULL,
-  `id_tipo_Licencia` int(11) DEFAULT NULL,
-  `telefono` int(11) DEFAULT NULL,
+  `codigo_isss` varchar(11) DEFAULT NULL,
+  `id_tipo_Licencia` varchar(16) DEFAULT NULL,
+  `telefono` varchar(8) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
-  `dui` int(11) DEFAULT NULL,
-  `nit` int(11) DEFAULT NULL,
-  `afp` int(11) DEFAULT NULL,
+  `dui` varchar(9) DEFAULT NULL,
+  `nit` varchar(14) DEFAULT NULL,
+  `afp` varchar(11) DEFAULT NULL,
   `estadi_civil` varchar(45) DEFAULT NULL,
   `empleado_id` int(11) DEFAULT NULL,
-  `cargo_id` int(11) NOT NULL
+  `cargo_id` int(11) NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `nombre`, `apellido`, `fecha_nac`, `fecha_ingreso`, `codigo_isss`, `id_tipo_Licencia`, `telefono`, `email`, `dui`, `nit`, `afp`, `estadi_civil`, `empleado_id`, `cargo_id`) VALUES
-(1, 'Cesar', 'Elias', '1990-01-03', '2018-01-01', 1010101010, 1012252522, 222222, 'iav.cesarelias@ufg.edu.sv', 1014546, 0, 0, 'Soltero', 1, 1),
-(4, 'Test', 'test', '2019-09-24', '2019-09-24', 1222, 202222, 2012021, 'example@example.com', 0, 0, 0, 'Soltero', 1, 1);
+INSERT INTO `empleado` (`id_empleado`, `nombre`, `apellido`, `fecha_nac`, `fecha_ingreso`, `codigo_isss`, `id_tipo_Licencia`, `telefono`, `email`, `dui`, `nit`, `afp`, `estadi_civil`, `empleado_id`, `cargo_id`, `estado`) VALUES
+(1, 'Cesar', 'Elias', '1990-01-03', '2018-01-01', '1010101010', '1012252522', '222222', 'iav.cesarelias@ufg.edu.sv', '1014546', '1231432', '234234234', 'AcompaÃ±ado', 1, 1, 1),
+(4, 'Test', 'test', '2019-09-24', '2019-09-24', '1222', '202222', '2012021', 'example@example.com', '0', '0', '0', 'Soltero', 1, 1, 1),
+(5, 'Danie', 'Diaz', '2019-09-26', '2019-09-26', '01212454785', '02545425852222', '22128147', 'e@d.com', '010121456', '01258500222', '255555', 'Soltero', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -479,7 +482,7 @@ ALTER TABLE `dias_solicitar`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `jornada_laboral`
 --
