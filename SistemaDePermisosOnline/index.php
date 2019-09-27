@@ -14,7 +14,7 @@
 	FROM `usuario` u inner JOIN usuario_rol ur on ur.usuario_id = u.id_usuario 
 	INNER JOIN rol r on r.id_rol = ur.rol_id
 	INNER JOIN empleado e ON u.empleado_id = e.id_empleado
-	where u.nickname = '$nickname' and u.psw = '$contrasenia';";
+	where u.nickname = '$nickname' and u.psw = '$contrasenia' and u.estado=1;";
 	$result=$conn->query($sql);
     $rows = $result->num_rows;
     

@@ -11,7 +11,7 @@
 		public function connect_db(){
 			$this->con = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);
 			if(mysqli_connect_error()){
-				die("Conexión a la base de datos falló " . mysqli_connect_error() . mysqli_connect_errno());
+				echo ("Conexión a la base de datos falló " . mysqli_connect_error() . mysqli_connect_errno());
 			}
 		}
 		
@@ -83,6 +83,70 @@
         
 		/****************************************
 		* 			FIN CRUD CARGOS			*
+		*****************************************/
+		/****************************************
+		* 			INICIA CRUD USUARIOS			*
+		*****************************************/
+		
+		public function ReadUsuario(){
+		$sql = "SELECT * FROM usuario u INNER JOIN empleado e ON u.empleado_id = e.id_empleado where u.estado = 1";
+			$res = mysqli_query($this->con, $sql);
+			return $res;
+		}
+        
+		public function deleteUsuario($id){
+			try {
+				$sql = "UPDATE usuario SET estado=0 WHERE id_usuario=$id";
+				$res = mysqli_query($this->con, $sql);
+				if($res){
+					return true;
+				}else{
+					return false;
+				}
+			} catch (Exception $e) {
+				die(var_dump($e->getMessage()));
+			  return false;
+			}
+		}
+		/****************************************
+		* 			FIN CRUD USUARIOS			*
+		*****************************************/
+		
+		/* 			INICIA CRUD ROLES			*
+		*****************************************/
+		
+		public function ReadRol(){
+		$sql = "SELECT * FROM rol where estado = 1";
+			$res = mysqli_query($this->con, $sql);
+			return $res;
+		}
+        
+		public function deleteRol($id){
+			try {
+				$sql = "UPDATE rol SET estado=0 WHERE id_rol=$id";
+				$res = mysqli_query($this->con, $sql);
+				if($res){
+					return true;
+				}else{
+					return false;
+				}
+			} catch (Exception $e) {
+				die(var_dump($e->getMessage()));
+			  return false;
+			}
+		}
+		
+		public function createRol($nombre){
+			$sql = "INSERT INTO `rol` (rol_nombre) VALUES ('$nombre')";
+			$res = mysqli_query($this->con, $sql);
+			if($res){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		/****************************************
+		* 			FIN CRUD ROLES			*
 		*****************************************/
 	}
 ?>	

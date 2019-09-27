@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2019 a las 19:37:22
+-- Tiempo de generación: 28-09-2019 a las 00:50:43
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 7.0.13
 
@@ -223,16 +223,19 @@ CREATE TABLE `pais` (
 
 CREATE TABLE `rol` (
   `id_rol` int(11) NOT NULL,
-  `rol_nombre` varchar(45) NOT NULL
+  `rol_nombre` varchar(45) NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `rol`
 --
 
-INSERT INTO `rol` (`id_rol`, `rol_nombre`) VALUES
-(1, 'Administrador'),
-(2, 'Personal Administrativo');
+INSERT INTO `rol` (`id_rol`, `rol_nombre`, `estado`) VALUES
+(1, 'Administrador', 1),
+(2, 'Personal Administrativo', 1),
+(3, 'Prueba', 1),
+(4, 'Prueba', 0);
 
 -- --------------------------------------------------------
 
@@ -494,6 +497,11 @@ ALTER TABLE `jornada_laboral`
 ALTER TABLE `pais`
   MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT de la tabla `tipo_sueldo`
 --
 ALTER TABLE `tipo_sueldo`
@@ -562,8 +570,7 @@ ALTER TABLE `solicitud_permiso`
 -- Filtros para la tabla `usuario_rol`
 --
 ALTER TABLE `usuario_rol`
-  ADD CONSTRAINT `Usuario_Rol_Rol` FOREIGN KEY (`rol_id`) REFERENCES `rol` (`id_rol`),
-  ADD CONSTRAINT `Usuario_Rol_Usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id_usuario`);
+  ADD CONSTRAINT `Usuario_Rol_Usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

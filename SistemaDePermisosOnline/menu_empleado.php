@@ -8,11 +8,11 @@ if($_SESSION['rol'] == 'Administrador'){
 		</div>
 		<div>
 			<i class="fa fa-user"></i>
-			<span><a href="usuario_listar.php">Gestion Usuarios</a></span>
+			<span> Gestion Usuarios</span>
 		</div>
 		<div>
 			<i class="fa fa-circle-notch"></i>
-			<span><a href="rol_listar.php">Asignar Roles</a></span>
+			<span> Asignar Roles</span>
 		</div>
 	</div>
 	<div class="options">
