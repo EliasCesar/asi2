@@ -32,7 +32,7 @@
 			}
 		}
 		public function read(){
-			$sql = "SELECT * FROM empleado";
+			$sql = "SELECT * FROM empleado where estado = 1";
 			$res = mysqli_query($this->con, $sql);
 			return $res;
 		}
@@ -54,7 +54,7 @@
 		}
 		public function delete($id){
 			try {
-				$sql = "DELETE FROM empleado WHERE id_empleado=$id";
+				$sql = "UPDATE empleado SET estado=0 WHERE id_empleado=$id";
 				$res = mysqli_query($this->con, $sql);
 				if($res){
 					return true;

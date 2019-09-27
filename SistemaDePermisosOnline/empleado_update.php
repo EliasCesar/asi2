@@ -65,28 +65,28 @@
 					<form method="post">
 						<div class="col-md-12">
 							<label>Nombres:</label>
-							<input type="hidden" name="id_empleado" id="id_empleado" class='form-control' maxlength="100"   value="<?php echo $datos_empleado->id_empleado;?>">
-							<input type="text" name="nombres" id="nombres" class='form-control' maxlength="100" value="<?php echo $datos_empleado->nombre;?>" required >
+							<input type="hidden" name="id_empleado" id="id_empleado" class='form-control' maxlength="45"   value="<?php echo $datos_empleado->id_empleado;?>">
+							<input type="text" name="nombres" id="nombres" class='form-control' maxlength="45" value="<?php echo $datos_empleado->nombre;?>" required >
 						</div>
 						<div class="col-md-12">
 							<label>Apellidos:</label>
-							<input type="text" name="apellidos" id="apellidos" class='form-control' maxlength="100" value="<?php echo $datos_empleado->apellido;?>" required>
+							<input type="text" name="apellidos" id="apellidos" class='form-control' maxlength="45" value="<?php echo $datos_empleado->apellido;?>" required>
 						</div>
 						<div class="col-md-12">
 							<label>Fecha Nacimiento:</label>
-							<input type="date" name="fecha_nac" id="fecha_nac" class='form-control' maxlength="100" value="<?php echo $datos_empleado->fecha_nac;?>" required>
+							<input type="date" name="fecha_nac" id="fecha_nac" class='form-control' value="<?php echo $datos_empleado->fecha_nac;?>" required>
 						</div>
 						<div class="col-md-12">
 							<label>Fecha Ingreso:</label>
-							<input type="date" name="fecha_ingreso" id="fecha_ingreso" class='form-control' maxlength="100" value="<?php echo $datos_empleado->fecha_ingreso;?>" required>
+							<input type="date" name="fecha_ingreso" id="fecha_ingreso" class='form-control' value="<?php echo $datos_empleado->fecha_ingreso;?>" required>
 						</div>
 						<div class="col-md-12">
 							<label>Código ISSS:</label>
-							<input type="number" name="codigo_isss" id="codigo_isss" class='form-control' maxlength="100" value="<?php echo $datos_empleado->codigo_isss;?>" required>
+							<input type="number" name="codigo_isss" id="codigo_isss" class='form-control' maxlength="11" value="<?php echo $datos_empleado->codigo_isss;?>" required>
 						</div>
 						<div class="col-md-12">
 							<label>Licencia</label>
-							<input type="number" name="id_tipo_licencia" id="id_tipo_licencia" class='form-control' maxlength="100" value="<?php echo $datos_empleado->id_tipo_licencia;?>" required>
+							<input type="number" name="id_tipo_licencia" id="id_tipo_licencia" class='form-control' maxlength="16" value="<?php echo $datos_empleado->id_tipo_licencia;?>" required>
 						</div>
 						<div class="col-md-12">
 							<label>Teléfono:</label>
@@ -94,7 +94,7 @@
 						</div>
 						<div class="col-md-12">
 							<label>Correo electrónico:</label>
-							<input type="email" name="email" id="email" class='form-control' maxlength="64" value="<?php echo $datos_empleado->email;?>" required>
+							<input type="email" name="email" id="email" class='form-control' maxlength="45" value="<?php echo $datos_empleado->email;?>" required>
 						
 						</div>
 						<div class="col-md-12">
@@ -103,7 +103,7 @@
 						</div>
 						<div class="col-md-12">
 							<label>NIT:</label>
-							<input type="text" name="nit" id="nit" class='form-control' maxlength="11" value="<?php echo $datos_empleado->nit;?>" required >
+							<input type="text" name="nit" id="nit" class='form-control' maxlength="13" value="<?php echo $datos_empleado->nit;?>" required >
 						</div>
 						<div class="col-md-12">
 							<label>AFP:</label>
@@ -111,7 +111,13 @@
 						</div>
 						<div class="col-md-12">
 							<label>Estado Civil:</label>
-							<input type="text" name="estadi_civil" id="estadi_civil" class='form-control' maxlength="45" value="<?php echo $datos_empleado->estadi_civil;?>" required >
+							<select name="estadi_civil">
+							  <option value="Soltero">Soltero</option>
+							  <option value="Divorciado">Divorciado</option>
+							  <option value="Casado">Casado</option>
+							  <option value="Acompañado">Acompañado</option>
+							  <option value="Otro">Otro</option>
+							</select>
 						</div>
 						<div class="col-md-12 pull-right">
 						<hr>

@@ -59,35 +59,35 @@
 					<form method="post">
 						<div class="col-md-12">
 							<label>Nombres:</label>
-							<input type="text" name="nombres" id="nombres" class='form-control' maxlength="100" required >
+							<input type="text" name="nombres" id="nombres" class='form-control' maxlength="45" required >
 						</div>
 						<div class="col-md-12">
 							<label>Apellidos:</label>
-							<input type="text" name="apellidos" id="apellidos" class='form-control' maxlength="100" required>
+							<input type="text" name="apellidos" id="apellidos" class='form-control' maxlength="45" required>
 						</div>
 						<div class="col-md-12">
 							<label>Fecha Nacimiento:</label>
-							<input type="date" name="fecha_nac" id="fecha_nac" class='form-control' maxlength="100" required>
+							<input type="date" name="fecha_nac" id="fecha_nac" class='form-control' required>
 						</div>
 						<div class="col-md-12">
 							<label>Fecha Ingreso:</label>
-							<input type="date" name="fecha_ingreso" id="fecha_ingreso" class='form-control' maxlength="100" required>
+							<input type="date" name="fecha_ingreso" id="fecha_ingreso" class='form-control' required>
 						</div>
 						<div class="col-md-12">
 							<label>Código ISSS:</label>
-							<input type="number" name="codigo_isss" id="codigo_isss" class='form-control' maxlength="100" required>
+							<input type="number" name="codigo_isss" id="codigo_isss" class='form-control' maxlength="11" required>
 						</div>
 						<div class="col-md-12">
 							<label>Licencia</label>
-							<input type="number" name="id_tipo_licencia" id="id_tipo_licencia" class='form-control' maxlength="100" required>
+							<input type="number" name="id_tipo_licencia" id="id_tipo_licencia" class='form-control' maxlength="13" required>
 						</div>
 						<div class="col-md-12">
 							<label>Teléfono:</label>
-							<input type="text" name="telefono" id="telefono" class='form-control' maxlength="15" required >
+							<input type="text" name="telefono" id="telefono" class='form-control' maxlength="8" required >
 						</div>
 						<div class="col-md-12">
 							<label>Correo electrónico:</label>
-							<input type="email" name="email" id="email" class='form-control' maxlength="64" required>
+							<input type="email" name="email" id="email" class='form-control' maxlength="45" required>
 						
 						</div>
 						<div class="col-md-12">
@@ -96,7 +96,7 @@
 						</div>
 						<div class="col-md-12">
 							<label>NIT:</label>
-							<input type="text" name="nit" id="nit" class='form-control' maxlength="11" required >
+							<input type="text" name="nit" id="nit" class='form-control' maxlength="13" required >
 						</div>
 						<div class="col-md-12">
 							<label>AFP:</label>
@@ -104,7 +104,13 @@
 						</div>
 						<div class="col-md-12">
 							<label>Estado Civil:</label>
-							<input type="text" name="estadi_civil" id="estadi_civil" class='form-control' maxlength="45" required >
+							<select name="estadi_civil">
+							  <option value="Soltero">Soltero</option>
+							  <option value="Divorciado">Divorciado</option>
+							  <option value="Casado">Casado</option>
+							  <option value="Acompañado">Acompañado</option>
+							  <option value="Otro">Otro</option>
+							</select>
 						</div>
 						<div class="col-md-12 pull-right">
 						<hr>
