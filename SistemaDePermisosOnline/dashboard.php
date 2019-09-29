@@ -9,6 +9,8 @@
         <?php 
 		if($_SESSION['rol']== "Administrador"){
 			include 'menu_admin.php'; 
+		}else if($_SESSION['rol']== "Empleado"){
+			include 'menu_empleado.php';
 		}
 		?>
         </div>

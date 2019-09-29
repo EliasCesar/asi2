@@ -24,8 +24,14 @@
 	  $_SESSION['nombre'] = $row['nombre'];
 	  $_SESSION['apellido'] = $row['apellido'];
       header("location: dashboard.php");
-      } else {
-      $error = "El correo o contraseña son incorrectos";
+    } else {
+		$message="Datos ingresados incorrectamente!";
+		$class="alert alert-danger";
+		?>
+	<div class="<?php echo $class?>">
+	  <?php echo $message;?>
+	</div>	
+		<?php
     }
   }
 ?> 

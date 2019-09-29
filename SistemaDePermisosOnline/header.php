@@ -1,7 +1,7 @@
 <?php
 	require('conexion/database.php');
 	session_start();
-	if($_SESSION['rol'] === ''){
+	if($_SESSION['rol'] === '' || $_SESSION == null){
 		header("location: index.php");
 	}
 ?>
@@ -24,7 +24,7 @@
     <header>
         <p><?php echo $_SESSION['nombre'] . " " .  $_SESSION['apellido']; ?><p>
         <div class="search">
-            <button class="btn btn-primary">Salir</button>
+            <button class="btn btn-primary"><a href="cerrar_sesion.php">Salir</a></button>
             <i class="fas fa-search"></i>
         </div>
     </header>
